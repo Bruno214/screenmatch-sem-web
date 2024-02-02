@@ -9,23 +9,20 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Serie(@JsonAlias("Title") String titulo,
                     @JsonAlias("totalSeasons") Integer totalTemporadas,
-                    @JsonAlias("Season") String temporada,
-                    List<Episodio> episodios) {
+                    List<Temporada> temporadas) {
     public Serie {
-        episodios = new ArrayList<>();
+        temporadas = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        StringBuilder retorno = new StringBuilder("\nSerie: \n " +
+        StringBuilder retorno = new StringBuilder(
                 "   Título: " + titulo() +
-                "   Total temporadas: " + totalTemporadas() +
-                "   Número temporada: " + temporada());
+                "   Total temporadas: " + totalTemporadas());
 
-        if (episodios() != null && !episodios().isEmpty()) {
-            retorno.append("\n          Episodios: \n");
-            for ( Episodio episodio : episodios()) {
-                retorno.append(episodio).append("\n");
+        if (temporadas() != null && !temporadas().isEmpty()) {
+            for ( Temporada temporada : temporadas()) {
+                retorno.append(temporada).append("\n");
             }
         }
 
