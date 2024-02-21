@@ -9,6 +9,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record Serie(@JsonAlias("Title") String titulo,
                     @JsonAlias("totalSeasons") Integer totalTemporadas,
+                    @JsonAlias("imdbRating") String avaliacao,
                     List<Temporada> temporadas) {
     public Serie {
         temporadas = new ArrayList<>();
@@ -18,7 +19,8 @@ public record Serie(@JsonAlias("Title") String titulo,
     public String toString() {
         StringBuilder retorno = new StringBuilder(
                 "   Título: " + titulo() +
-                "   Total temporadas: " + totalTemporadas());
+                "   Total temporadas: " + totalTemporadas() +
+                "   Avaliação: " + avaliacao());
 
         if (temporadas() != null && !temporadas().isEmpty()) {
             for ( Temporada temporada : temporadas()) {
