@@ -14,8 +14,8 @@ public record DadosEpisodio(
     @Override
     public String toString() {
         return  "     Titulo: " + titulo()+
-                "     Número: " + numeroEpisodio()+
+                "     Número episódio: " + numeroEpisodio()+
                 "     Avaliação: " + avaliacao()+
-                "     Data Lançamento: " + dataLancamento();
+                "     Data Lançamento: " + dataLancamento() + "\n";
     }
 }
